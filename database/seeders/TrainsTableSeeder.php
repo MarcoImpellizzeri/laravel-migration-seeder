@@ -17,10 +17,12 @@ class TrainsTableSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $company = ['Trenitalia', 'Italo', 'Frecciarossa', 'Trenord'];
             $city = ['Roma', 'Milano', 'Napoli', 'Palermo', 'Bologna', 'Genova'];
+            $date = ['2023-09-27', '2023-09-30', '2023-09-28'];
 
             $train = new Train();
 
             $train->azienda = $faker->randomElement($company);
+            $train->data_partenza = $faker->randomElement($date);
             $train->stazione_partenza = $faker->randomElement($city);
             $train->stazione_arrivo = $faker->randomElement($city);
             $train->orario_partenza = $faker->time();
@@ -29,6 +31,8 @@ class TrainsTableSeeder extends Seeder
             $train->numero_carrozze = $faker->numberBetween(5, 20);
             $train->in_orario = $faker->boolean;
             $train->cancellato = $faker->boolean;
+
+            $train->save();
         }
     }
 }
