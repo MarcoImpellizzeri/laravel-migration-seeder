@@ -14,8 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.public');
-});
-
 Route::get("/", [TrainsController::class, "index"]);
